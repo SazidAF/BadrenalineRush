@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLev: 0
+  levels: []
 --- !u!1 &147922541
 GameObject:
   m_ObjectHideFlags: 0

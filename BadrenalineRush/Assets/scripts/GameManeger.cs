@@ -8,19 +8,31 @@ public class GameManeger : MonoBehaviour
 
     public static GameManeger instance;
     // Start is called before the first frame update
-
-    public int currentLev = 0;
+    public int totalLev;
+    public int currentLev = 1;
+    public bool[] isUnlockedLevel;
 
 
 
     private void Awake()
     {
         if(instance == null)
-            instance = this; 
+            instance = this;
+
     }
+
+    private void initiateLevlist()
+    {
+        for(int i = 0; i < totalLev; i++)
+        {
+            isUnlockedLevel[i] = false;
+            Debug.Log(isUnlockedLevel[1]);
+        }
+    } 
     void Start()
     {
-        
+        isUnlockedLevel = new bool[totalLev];
+        initiateLevlist();
     }
 
     // Update is called once per frame

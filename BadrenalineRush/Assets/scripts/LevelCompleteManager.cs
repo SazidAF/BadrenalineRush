@@ -11,12 +11,17 @@ public class LevelCompleteManager : MonoBehaviour
     }
     public void changeScene(string name)
     {
-        GameManeger.sceneChanger(name);
+        GameManeger.instance.sceneChanger(name);
     }
 
     public void restartScene()
     {
-        GameManeger.restartScene();
+        GameManeger.instance.restartScene();
+    }
+
+    public void nextLev()
+    {
+        GameManeger.instance.nextLevel();
     }
 
     // Update is called once per frame

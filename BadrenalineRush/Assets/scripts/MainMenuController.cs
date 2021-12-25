@@ -12,8 +12,9 @@ public class MainMenuController : MonoBehaviour
 
     public void changeScene(string name)
     {
-        GameManeger.sceneChanger(name);
+        GameManeger.instance.sceneChanger(name);
     }
+
 
 
     // Update is called once per frame

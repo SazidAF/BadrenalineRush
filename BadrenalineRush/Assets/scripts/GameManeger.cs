@@ -26,7 +26,6 @@ public class GameManeger : MonoBehaviour
         for(int i = 0; i < totalLev; i++)
         {
             isUnlockedLevel[i] = false;
-            Debug.Log(isUnlockedLevel[1]);
         }
     } 
     void Start()

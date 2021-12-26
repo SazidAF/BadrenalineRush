@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlaySoundOnStart : MonoBehaviour
 {
 
-
-    [SerializeField] private AudioClip[]
+    [SerializeField] private AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SoundManager.instance.playSound(clip);
+    }
+    public void playOnclick()
+    {
+        SoundManager.instance.playSound(clip);
     }
 
 }

@@ -11,6 +11,7 @@ public class AudioSlide : MonoBehaviour
 
     void Start()
     {
+        SoundManager.instance.changeMasterVolume(slider.value);
         slider.onValueChanged.AddListener(val => SoundManager.instance.changeMasterVolume(val));
     }
 

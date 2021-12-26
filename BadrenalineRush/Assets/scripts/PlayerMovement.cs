@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool doublejump;
     private float horizontal;
-    private float speed = 8f;
-    private float jumpForce = 16f;
+    public float speed = 8f;
+    public float jumpForce = 13f;
     private bool isFacingRight = true;
 
     void Update()

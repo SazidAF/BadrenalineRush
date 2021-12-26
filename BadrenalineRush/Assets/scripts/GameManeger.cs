@@ -16,8 +16,15 @@ public class GameManeger : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
     }
 
@@ -68,8 +75,3 @@ public class GameManeger : MonoBehaviour
 }
 
 
-
-public enum Gamestate
-{
-    
-}

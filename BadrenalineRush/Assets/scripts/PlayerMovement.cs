@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
+
+    private bool doublejump;
     private float horizontal;
     private float speed = 8f;
     private float jumpForce = 16f;
@@ -16,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(IsGrounded() && !Input.GetButton("Jump"))
+        {
+            doublejump = false;
+        }
         if (!isFacingRight && horizontal > 0f)
         {
             Flip();
@@ -33,9 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && IsGrounded())
+        if (context.performed && (IsGrounded() || doublejump))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
+            doublejump = !doublejump;
         }
 
         if (context.canceled && rb.velocity.y > 0f)

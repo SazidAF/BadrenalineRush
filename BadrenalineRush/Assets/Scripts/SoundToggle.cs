@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SoundToggle : MonoBehaviour
 {
 
-    private bool isSoundOn = true;
+    public bool isSoundOn = true;
     [SerializeField]
     private RawImage rawImage;
     [SerializeField]
@@ -18,12 +18,14 @@ public class SoundToggle : MonoBehaviour
 
     public void toggleSound()
     {
-        changeSprite();
+        
         isSoundOn = !isSoundOn;
         if (music)
         {
             SoundManager.instance.toggleSound();
         }
+        changeSprite();
+
     }
 
     private void changeSprite()

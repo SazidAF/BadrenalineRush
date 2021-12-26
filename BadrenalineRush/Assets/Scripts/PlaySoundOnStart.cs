@@ -10,10 +10,8 @@ public class PlaySoundOnStart : MonoBehaviour
     void Start()
     {
         SoundManager.instance.playSound(clip);
+
     }
-    public void playOnclick()
-    {
-        SoundManager.instance.playSound(clip);
-    }
+
 
 }

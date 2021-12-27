@@ -9,8 +9,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
+    [SerializeField] PlayerAnimationController animController;
 
-    private bool doublejump;
+    public bool doublejump;
     private float horizontal;
     public float speed = 8f;
     public float jumpForce = 13f;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         if(IsGrounded() && !Input.GetButton("Jump"))
         {
             doublejump = false;
+            animController.stopJump();
         }
         if (!isFacingRight && horizontal > 0f)
         {
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
     }
 
     private void FixedUpdate()
@@ -42,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed && (IsGrounded() || doublejump))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
+            animController.startJump();
             doublejump = !doublejump;
         }
 
@@ -67,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        animController.startRunning();
         horizontal = context.ReadValue<Vector2>().x;
+        if (context.canceled)
+        {
+            animController.stopRunning();
+        }
     }
 }

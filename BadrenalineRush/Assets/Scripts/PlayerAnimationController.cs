@@ -31,6 +31,11 @@ public class PlayerAnimationController : MonoBehaviour
     {
         animator.SetBool("IsDead", true);
     }
+    public void stopDeath()
+    {
+        animator.SetBool("IsDead", false);
+    }
+
 
     // Start is called before the first frame update
     void Start()

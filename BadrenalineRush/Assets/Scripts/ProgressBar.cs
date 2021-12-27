@@ -19,7 +19,7 @@ public class ProgressBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        IncrementProgress(0.5f); 
+        PlayerManager.instance.getBadrenaline(); 
     }
 
     // Update is called once per frame
@@ -35,6 +35,7 @@ public class ProgressBar : MonoBehaviour
         {
             particleSys.Stop();
         }
+        slider.value = PlayerManager.instance.getBadrenaline();
     }
 
     public void IncrementProgress(float newProgress)

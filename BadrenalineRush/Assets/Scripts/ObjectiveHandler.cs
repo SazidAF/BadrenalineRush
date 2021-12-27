@@ -24,7 +24,7 @@ public class ObjectiveHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerEntered && Input.GetKey(KeyCode.E))
+        if(playerEntered && Input.GetKey(KeyCode.E) && PlayerManager.instance.isBaddable())
         {
             cageAnim.SetBool("goFade", true);
             Invoke("destroyCage", 2f);

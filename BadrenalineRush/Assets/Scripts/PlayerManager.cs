@@ -10,11 +10,24 @@ public class PlayerManager : MonoBehaviour
     public Transform groundCheck;
     public PlayerAnimationController pAnimCtrl;
     private Vector3 respawnPoint;
+    private float badrenalinePoint = 0;
+    private bool baddable;
+    public static PlayerManager instance;
 
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Debug.LogWarning("multiple player manager");
+            return;
+        }
+        instance = this;
+    }
     void Start()
     {
         respawnPoint = rb.transform.position;
+        baddable = false;
     }
 
     // Update is called once per frame
@@ -61,5 +74,24 @@ public class PlayerManager : MonoBehaviour
             respawnPoint = rb.transform.position;
             Debug.Log(respawnPoint);
         }
+    }
+
+    public void addBadrenaline()
+    {
+        badrenalinePoint += .25f;
+    }
+    public float getBadrenaline()
+    {
+        return badrenalinePoint;
+    }
+    
+    public bool isBaddable()
+    {
+        if (badrenalinePoint >= 1)
+        {
+            baddable = true;
+        }
+        return baddable;
+
     }
 }

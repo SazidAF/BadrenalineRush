@@ -8,10 +8,14 @@ public class NPCinteract : MonoBehaviour
     private Animator boyAnim;
     [SerializeField]
     private Animator balloonAnim;
+    [SerializeField]
+    private BoxCollider2D boxCollider;
     private bool isPlayerHere;
+    private bool hasPlayerBeenHere;
     void Start()
     {
         isPlayerHere = false;
+        hasPlayerBeenHere = true;
     }
 
     private void killBoy()
@@ -24,13 +28,22 @@ public class NPCinteract : MonoBehaviour
         balloonAnim.SetBool("isPop", true);
     }
 
+    private void interaction()
+    {
+        killBoy();
+        popBalloon();
+        PlayerManager.instance.addBadrenaline();
+        hasPlayerBeenHere = false;
+        boxCollider.enabled = false;
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerHere == true && Input.GetKey(KeyCode.E))
+        if (isPlayerHere == true && Input.GetKey(KeyCode.E) && hasPlayerBeenHere)
         {
-            killBoy();
-            popBalloon();
+            interaction();
         }
     }
 

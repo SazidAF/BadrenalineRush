@@ -8,7 +8,6 @@ public class NPCinteract : MonoBehaviour
     private Animator boyAnim;
     [SerializeField]
     private Animator balloonAnim;
-
     private bool isPlayerHere;
     void Start()
     {

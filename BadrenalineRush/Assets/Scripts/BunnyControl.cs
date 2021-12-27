@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class BunnyControl : MonoBehaviour
 {
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private int startingIndex;
+    [SerializeField]
+    private Transform[] points;
+    private int index_;
     // Start is called before the first frame update
     void Start()
     {

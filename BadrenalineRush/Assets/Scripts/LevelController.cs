@@ -27,6 +27,8 @@ public class LevelController : MonoBehaviour
     {
         GameManeger.instance.sceneChanger(name);
     }
+
+
     // Update is called once per frame
     void Update()
     {

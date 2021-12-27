@@ -18,7 +18,7 @@ public class ObjectiveHandler : MonoBehaviour
 
     private void destroyCage()
     {
-        Destroy(cage);
+        cage.GetComponent<BoxCollider2D>().enabled = false;
     }
     
     // Update is called once per frame

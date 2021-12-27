@@ -27,9 +27,9 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetBool("isJumping", false);
     }
 
-    public void goIdle(bool isGrounded)
+    public void startDeath()
     {
-        animator.SetBool("isIdle", isGrounded);
+        animator.SetBool("IsDead", true);
     }
 
     // Start is called before the first frame update

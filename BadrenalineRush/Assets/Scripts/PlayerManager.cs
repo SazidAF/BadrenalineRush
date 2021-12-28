@@ -78,16 +78,16 @@ public class PlayerManager : MonoBehaviour
 
     public void addBadrenaline()
     {
-        badrenalinePoint += .25f;
+        badrenalinePoint += .1f;
     }
     public float getBadrenaline()
     {
-        return badrenalinePoint;
+       return badrenalinePoint;
     }
     
     public bool isBaddable()
     {
-        if (badrenalinePoint >= .75f)
+        if (badrenalinePoint >= .3f)
         {
             baddable = true;
         }
@@ -102,6 +102,6 @@ public class PlayerManager : MonoBehaviour
 
     public void hasUsedBadrenaline()
     {
-        badrenalinePoint -= .75f;
+        badrenalinePoint -= .3f;
     }
 }

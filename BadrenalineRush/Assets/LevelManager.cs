@@ -34,6 +34,11 @@ public class LevelManager : MonoBehaviour
         GameManeger.instance.exitGame();
     }
 
+    public void restartGame()
+    {
+        GameManeger.instance.playCurrentScene();
+    }
+
     // Update is called once per frame
     void Update()
     {

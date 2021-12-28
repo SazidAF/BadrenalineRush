@@ -42,11 +42,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && (IsGrounded() || doublejump))
+        if (context.performed && (IsGrounded() || (doublejump && PlayerManager.instance.canDoubleJump())))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animController.startJump();
             doublejump = !doublejump;
+            if(doublejump == false)
+                PlayerManager.instance.hasDoubleJumped();
         }
 
         if (context.canceled && rb.velocity.y > 0f)

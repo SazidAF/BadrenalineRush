@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExitHandler : MonoBehaviour
 {
-    private bool hasPlayerEnter;
+    //private bool hasPlayerEnter;
 
     void Start()
     {
@@ -31,9 +31,4 @@ public class ExitHandler : MonoBehaviour
     
     
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.name == "Player")
-            hasPlayerEnter = false;
-    }
 }

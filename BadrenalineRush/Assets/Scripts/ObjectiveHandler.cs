@@ -26,6 +26,8 @@ public class ObjectiveHandler : MonoBehaviour
     {
         if(playerEntered && Input.GetKey(KeyCode.E) && PlayerManager.instance.isBaddable())
         {
+            PlayerManager.instance.setBaddableFalse();
+            PlayerManager.instance.hasUsedBadrenaline();
             cageAnim.SetBool("goFade", true);
             Invoke("destroyCage", 2f);
         }

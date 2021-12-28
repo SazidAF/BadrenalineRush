@@ -87,11 +87,21 @@ public class PlayerManager : MonoBehaviour
     
     public bool isBaddable()
     {
-        if (badrenalinePoint >= 1)
+        if (badrenalinePoint >= .75f)
         {
             baddable = true;
         }
         return baddable;
 
+    }
+
+    public void setBaddableFalse()
+    {
+        baddable = false;
+    }
+
+    public void hasUsedBadrenaline()
+    {
+        badrenalinePoint -= .75f;
     }
 }

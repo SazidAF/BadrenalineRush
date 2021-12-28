@@ -50,7 +50,8 @@ public class PlayerManager : MonoBehaviour
             Die();
         }
     }
-    
+
+        
 
     public void Die()
     {
@@ -73,6 +74,10 @@ public class PlayerManager : MonoBehaviour
         {
             respawnPoint = rb.transform.position;
             Debug.Log(respawnPoint);
+        }
+        if(col.gameObject.tag == "FallDetector")
+        {
+            Invoke("Respawn", 0.25f);
         }
     }
 

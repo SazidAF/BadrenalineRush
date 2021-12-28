@@ -30,16 +30,16 @@ public class GameManeger : MonoBehaviour
 
     private void initiateLevlist()
     {
-        for(int i = 1; i <= totalLev; i++)
+        for(int i = 0; i < totalLev; i++)
         {
             isUnlockedLevel[i] = false;
         }
     } 
     void Start()
     {
-        isUnlockedLevel = new bool[totalLev+1];
+        isUnlockedLevel = new bool[totalLev];
         initiateLevlist();
-        isUnlockedLevel[currentLev] = true;
+        isUnlockedLevel[currentLev-1] = true;
     }
 
     // Update is called once per frame
@@ -59,13 +59,23 @@ public class GameManeger : MonoBehaviour
         //SceneManager.LoadScene(currentLevel.name);
         GameManeger.instance.sceneChanger(currentLev.ToString());
         //sceneChanger("lev" + instance.currentLev);
+        Debug.Log(currentLev);
     }
 
     public void nextLevel()
     {
-        currentLev += 1;
-        GameManeger.instance.sceneChanger(currentLev.ToString());
-        isUnlockedLevel[currentLev] = true;
+        Debug.Log(isUnlockedLevel.Length);
+        Debug.Log(currentLev);
+        if (isUnlockedLevel.Length > currentLev)
+        {
+            currentLev += 1;
+            GameManeger.instance.sceneChanger(currentLev.ToString());
+            isUnlockedLevel[currentLev - 1] = true;
+        }
+        else
+        {
+            Debug.Log(currentLev);
+        }
 
     }
 

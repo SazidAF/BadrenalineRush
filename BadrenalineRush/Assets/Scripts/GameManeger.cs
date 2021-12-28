@@ -9,7 +9,7 @@ public class GameManeger : MonoBehaviour
     public static GameManeger instance;
     // Start is called before the first frame update
     public int totalLev;
-    public int currentLev = 1;
+    private int currentLev = 1;
     public bool[] isUnlockedLevel;
 
 
@@ -67,6 +67,11 @@ public class GameManeger : MonoBehaviour
         GameManeger.instance.sceneChanger(currentLev.ToString());
         isUnlockedLevel[currentLev] = true;
 
+    }
+
+    public void gotoLevelComplete()
+    {
+        GameManeger.instance.sceneChanger("LevelComplete");
     }
 
     public void exitGame()

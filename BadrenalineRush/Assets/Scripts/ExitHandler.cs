@@ -16,7 +16,10 @@ public class ExitHandler : MonoBehaviour
     {
         if (hasPlayerEnter)
         {
-            Debug.Log("Do somethiong");
+            if (Input.GetKey(KeyCode.E))
+            {
+                GameManeger.instance.gotoLevelComplete();
+            }
         }
     }
 

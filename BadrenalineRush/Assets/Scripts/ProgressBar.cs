@@ -17,29 +17,45 @@ public class ProgressBar : MonoBehaviour
         particleSys = GameObject.Find("ProgressBar Particles").GetComponent<ParticleSystem>();
     }
     // Start is called before the first frame update
+
     void Start()
     {
-        PlayerManager.instance.getBadrenaline(); 
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        targetProgress = PlayerManager.instance.getBadrenaline();
         if(slider.value < targetProgress)
         {
             slider.value += fillSpeed * Time.deltaTime;
-            if(!particleSys.isPlaying){
+            if(!particleSys.isPlaying)
+            {
+                particleSys.Play();
+            }
+        }else if(slider.value > targetProgress)
+        {
+            slider.value -= fillSpeed * Time.deltaTime;
+            if(!particleSys.isPlaying)
+            {
                 particleSys.Play();
             }
         }else
         {
             particleSys.Stop();
         }
-        slider.value = PlayerManager.instance.getBadrenaline();
+
     }
 
     public void IncrementProgress(float newProgress)
     {
         targetProgress = slider.value + newProgress;
+    }
+
+    public void DecrementProgress(float newProgress)
+    {
+        targetProgress = slider.value - newProgress;
     }
 }

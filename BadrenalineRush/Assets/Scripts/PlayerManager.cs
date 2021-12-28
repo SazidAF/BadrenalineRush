@@ -78,7 +78,7 @@ public class PlayerManager : MonoBehaviour
 
     public void addBadrenaline()
     {
-        badrenalinePoint += .1f;
+        badrenalinePoint += .2f;
     }
     public float getBadrenaline()
     {
@@ -103,5 +103,14 @@ public class PlayerManager : MonoBehaviour
     public void hasUsedBadrenaline()
     {
         badrenalinePoint -= .3f;
+    }
+    public void hasDoubleJumped(){
+        badrenalinePoint -= .02f;
+    }
+    public bool canDoubleJump(){
+        if(badrenalinePoint >= .02f){
+            return true;
+        }else
+            return false;
     }
 }

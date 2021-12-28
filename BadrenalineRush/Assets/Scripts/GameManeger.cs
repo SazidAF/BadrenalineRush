@@ -13,7 +13,6 @@ public class GameManeger : MonoBehaviour
     public bool[] isUnlockedLevel;
 
 
-
     private void Awake()
     {
         if (instance == null)
@@ -88,6 +87,8 @@ public class GameManeger : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }
 
 

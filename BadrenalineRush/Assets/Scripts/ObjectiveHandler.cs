@@ -24,7 +24,7 @@ public class ObjectiveHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerEntered && Input.GetKey(KeyCode.E) && PlayerManager.instance.isBaddable())
+        if(playerEntered && Input.GetKeyDown(KeyCode.E) && PlayerManager.instance.isBaddable())
         {
             PlayerManager.instance.setBaddableFalse();
             PlayerManager.instance.hasUsedBadrenaline();

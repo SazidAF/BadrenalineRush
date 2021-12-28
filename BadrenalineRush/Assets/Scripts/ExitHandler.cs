@@ -14,20 +14,22 @@ public class ExitHandler : MonoBehaviour
 
     void Update()
     {
-        if (hasPlayerEnter)
-        {
-            if (Input.GetKey(KeyCode.E))
-            {
-                GameManeger.instance.gotoLevelComplete();
-            }
-        }
+        // if (hasPlayerEnter)
+        //{
+        //  if (Input.GetKey(KeyCode.E))
+        // {
+        //     GameManeger.instance.gotoLevelComplete();
+        //}
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Player")
-            hasPlayerEnter = true;
+            GameManeger.instance.gotoLevelComplete();
     }
+    
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {

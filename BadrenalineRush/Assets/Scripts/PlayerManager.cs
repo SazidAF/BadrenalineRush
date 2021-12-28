@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     private float badrenalinePoint = 0;
     private bool baddable;
     public static PlayerManager instance;
-
+    public int deathCount = 0;
 
     private void Awake()
     {
@@ -57,7 +57,8 @@ public class PlayerManager : MonoBehaviour
     {
             // Animation play
             pAnimCtrl.startDeath();
-            // respawn
+        // respawn
+            deathCount += 1;
             GetComponent<PlayerMovement>().enabled = false;
             Invoke("Respawn", 2.0f);
     }

@@ -88,6 +88,10 @@ public class GameManeger : MonoBehaviour
         Application.Quit();
     }
 
+    public void playCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 }
 

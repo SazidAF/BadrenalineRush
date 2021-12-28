@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class LevelManager : MonoBehaviour
     private bool isPause;
     [SerializeField]
     private Canvas canvas;
-
+    [SerializeField]
+    private TextMeshProUGUI deathCountText;
     private void goPause()
     {
         isPause = !isPause;
@@ -39,5 +41,6 @@ public class LevelManager : MonoBehaviour
         {
             goPause();
         }
+        deathCountText.text = "Death count:  " + PlayerManager.instance.deathCount;
     }
 }
